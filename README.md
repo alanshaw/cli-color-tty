@@ -1,4 +1,4 @@
-# cli-color-tty
+# cli-color-tty [![Build Status](https://travis-ci.org/alanshaw/cli-color-tty.svg?branch=master)](https://travis-ci.org/alanshaw/cli-color-tty) [![Dependency Status](https://david-dm.org/alanshaw/cli-color-tty.svg)](https://david-dm.org/alanshaw/cli-color-tty) [![Coverage Status](https://img.shields.io/coveralls/alanshaw/cli-color-tty/master.svg?style=flat)](https://coveralls.io/r/alanshaw/cli-color-tty)
 
 The [cli-color](https://github.com/medikoo/cli-color) module but TTY aware. It provides a cli-color compatible API that doesn't colorize your strings for non-TTY use.
 

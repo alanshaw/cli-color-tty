@@ -4,7 +4,8 @@
   "description": "cli-color that takes into account process.stdout.isTTY",
   "main": "index.js",
   "scripts": {
-    "test": "istanbul cover node_modules/.bin/tape test.js"
+    "test": "istanbul cover node_modules/.bin/tape test.js",
+    "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "keywords": [
     "tty",
@@ -25,6 +26,7 @@
     "cli-color": "^0.3.2"
   },
   "devDependencies": {
+    "coveralls": "^2.11.2",
     "istanbul": "^0.3.5",
     "tape": "^3.0.3"
   }
