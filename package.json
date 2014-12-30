@@ -1,0 +1,31 @@
+{
+  "name": "cli-color-tty",
+  "version": "0.0.0",
+  "description": "cli-color that takes into account process.stdout.isTTY",
+  "main": "index.js",
+  "scripts": {
+    "test": "istanbul cover node_modules/.bin/tape test.js"
+  },
+  "keywords": [
+    "tty",
+    "isTTY",
+    "ansi",
+    "color",
+    "console",
+    "terminal",
+    "cli",
+    "shell",
+    "log",
+    "logging",
+    "xterm"
+  ],
+  "author": "Alan Shaw",
+  "license": "ISC",
+  "dependencies": {
+    "cli-color": "^0.3.2"
+  },
+  "devDependencies": {
+    "istanbul": "^0.3.5",
+    "tape": "^3.0.3"
+  }
+}
