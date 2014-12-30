@@ -25,5 +25,5 @@ var clc = require('cli-color-tty')(/* true/false/default: process.stdout.isTTY *
 After calling the factory function, use it as per the [cli-color docs](https://github.com/medikoo/cli-color/blob/master/README.md).
 
 Pass `true` to the factory function to get back the cli-color module.  
-Pass `false` to the factory function to get back a cli-color compatible object that doesn't colorize your strings.  
+Pass `false` to get back a cli-color compatible object that doesn't colorize your strings.  
 Defaults to `process.stdout.isTTY`
