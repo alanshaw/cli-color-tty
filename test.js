@@ -8,6 +8,13 @@ test('Should use colors for TTY fd', function (t) {
   t.end()
 })
 
+test('Should use bright colors for TTY fd', function(t) {
+  t.plan(1)
+  var clc = clcTTY(true)
+  t.equal(clc.redBright('RED'), '\x1b[91mRED\x1b[39m', 'String contains colors')
+  t.end()
+});
+
 test('Should use colors for non-TTY fd', function (t) {
   t.plan(1)
   var clc = clcTTY(false)
@@ -15,22 +22,31 @@ test('Should use colors for non-TTY fd', function (t) {
   t.end()
 })
 
+test('Should use bright colors for non-TTY fd', function (t) {
+  t.plan(1)
+  var clc = clcTTY(false)
+  t.equal(clc.redBright('RED'), 'RED', 'String does not contain colors')
+  t.end()
+})
+
 test('Should default to process.stdout.isTTY when isTTY option not set', function (t) {
-  t.plan(2)
+  t.plan(4)
 
   process.stdout.isTTY = false
   var clc = clcTTY()
   t.equal(clc.red('RED'), 'RED', 'String does not contain colors')
+  t.equal(clc.redBright('RED'), 'RED', 'String does not contain colors')
 
   process.stdout.isTTY = true
   clc = clcTTY()
   t.equal(clc.red('RED'), '\x1b[31mRED\x1b[39m', 'String contains colors')
+  t.equal(clc.redBright('RED'), '\x1b[91mRED\x1b[39m', 'String contains colors')
 
   t.end()
 })
 
 test('non-TTY color/style API compat', function (t) {
-  t.plan(14)
+  t.plan(22)
   var clc = clcTTY(false)
   t.equal(clc.black('black'), 'black', 'black')
   t.equal(clc.red('red'), 'red', 'red')
@@ -40,6 +56,14 @@ test('non-TTY color/style API compat', function (t) {
   t.equal(clc.magenta('magenta'), 'magenta', 'magenta')
   t.equal(clc.cyan('cyan'), 'cyan', 'cyan')
   t.equal(clc.white('white'), 'white', 'white')
+  t.equal(clc.blackBright('black'), 'black', 'black')
+  t.equal(clc.redBright('red'), 'red', 'red')
+  t.equal(clc.greenBright('green'), 'green', 'green')
+  t.equal(clc.yellowBright('yellow'), 'yellow', 'yellow')
+  t.equal(clc.blueBright('blue'), 'blue', 'blue')
+  t.equal(clc.magentaBright('magenta'), 'magenta', 'magenta')
+  t.equal(clc.cyanBright('cyan'), 'cyan', 'cyan')
+  t.equal(clc.whiteBright('white'), 'white', 'white')
   t.equal(clc.bold('bold'), 'bold', 'bold')
   t.equal(clc.italic('italic'), 'italic', 'italic')
   t.equal(clc.underline('underline'), 'underline', 'underline')
@@ -66,6 +90,14 @@ test('non-TTY color/style API chaining compat', function (t) {
     .blink
     .inverse
     .strike
+    .blackBright
+    .redBright
+    .greenBright
+    .yellowBright
+    .blueBright
+    .magentaBright
+    .cyanBright
+    .whiteBright
 
   t.equal(msg('color/style'), 'color/style', 'Compatible color/style chaining API')
   t.end()
