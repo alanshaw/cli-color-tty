@@ -11,6 +11,8 @@ function fn () {
   .forEach(function (c) {
     fn[c] = fn
     fn['bg' + c[0].toUpperCase() + c.slice(1)] = fn
+    fn[c + 'Bright'] = fn
+    fn['bg' + c[0].toUpperCase() + c.slice(1) + 'Bright'] = fn
   })
 
 ;['bold', 'italic', 'underline', 'blink', 'inverse', 'strike']
